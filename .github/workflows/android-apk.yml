@@ -27,17 +27,14 @@ jobs:
         run: chmod +x ./gradlew || true
 
 
-      - name: Generate Debug Keystore
+      - name: Restore Permanent Debug Keystore
+        env:
+          DEBUG_KEYSTORE_BASE64: ${{ secrets.DEBUG_KEYSTORE_BASE64 }}
         run: |
-          keytool -genkeypair -v \
-            -keystore debug.keystore \
-            -storepass android \
-            -alias androiddebugkey \
-            -keypass android \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -dname "CN=Android Debug,O=Android,C=US"
+          test -n "$DEBUG_KEYSTORE_BASE64"
+          printf '%s' "$DEBUG_KEYSTORE_BASE64" | base64 --decode > debug.keystore
+          test -s debug.keystore
+          chmod 600 debug.keystore
 
       - name: Assemble Debug APK
         run: ./gradlew :app:assembleDebug
