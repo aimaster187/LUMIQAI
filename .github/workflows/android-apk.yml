@@ -27,7 +27,7 @@ jobs:
         run: chmod +x ./gradlew || true
 
       - name: Run Unit Tests
-        run: ./gradlew :app:testDebugUnitTest --exclude-task "*Rule*"
+        run: ./gradlew :app:testDebugUnitTest
 
       - name: Assemble Debug APK
         run: ./gradlew :app:assembleDebug
