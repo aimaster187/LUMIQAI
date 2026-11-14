@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "750655526285-ar8mbticd4bmqpp9ksmk1n8qce0brc3q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lumiqlabs.lumiqai",
+            "certificate_hash": "d39a0976a0c75e8ea07916c05a4350ae5c6f3bfe"
+          }
+        },
+        {
           "client_id": "750655526285-n4drl9c14net32ln7lnsn2diac4hb8uv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
