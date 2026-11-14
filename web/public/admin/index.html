@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMIQ LABS Admin Dashboard — Server-Verified Governance</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .admin-wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 64px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 18px; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--chrome-border);
+      background: #fff;
+      color: var(--ink-primary);
+      font-family: inherit;
+      margin: 6px 0 10px;
+    }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--chrome-border); }
+    .badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; }
+    .badge-ok { background: rgba(0, 184, 124, 0.14); color: var(--emerald); }
+    .badge-warn { background: rgba(29, 107, 255, 0.12); color: var(--electric-blue); }
+    .badge-bad { background: rgba(225, 29, 72, 0.14); color: var(--crimson); }
+    .btn-sm { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--chrome-border); background: #fff; cursor: pointer; font-weight: 600; }
+    .btn-sm.danger { border-color: var(--crimson); color: var(--crimson); }
+    .btn-sm.primary { background: var(--electric-blue); color: #fff; border-color: var(--electric-blue); }
+    .hidden { display: none !important; }
+    @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="glass-nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <span class="orb-badge"></span>
+        <span><strong>LUMIQ LABS Admin</strong> <small>Governance Console</small></span>
+      </a>
+      <div class="row">
+        <span id="adminIdentity" class="stat-label">Not signed in</span>
+        <button id="signInBtn" class="primary-btn">Google Admin Sign-In</button>
+        <button id="signOutBtn" class="secondary-btn hidden">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-wrap">
+    <section id="authGateCard" class="glass-card wide">
+      <h2>Server-Verified Admin Access Required</h2>
+      <p>Sign in with an authorized LUMIQ LABS administrator Google account (verified via Firestore <code>admins/{uid}</code> and strict security rules). No hardcoded passwords exist. Private chats, AI memories, Keystore vault entries, and API keys are never accessible here.</p>
+      <p id="authStatusMsg" style="color: var(--electric-blue); font-weight: 600;"></p>
+    </section>
+
+    <div id="adminConsole" class="hidden">
+      <div class="grid-2">
+        <section class="glass-card">
+          <h3>Global App Config &amp; Maintenance</h3>
+          <label><input type="checkbox" id="maintModeCheck" style="width:auto;margin-right:8px;">Enable Maintenance Mode</label>
+          <input type="text" id="maintMsgInput" placeholder="Maintenance notice message">
+          <input type="text" id="minVerInput" placeholder="Minimum supported version (e.g. 1.0.0)" value="1.0.0">
+          <button id="saveConfigBtn" class="primary-btn">Save Global Config</button>
+        </section>
+
+        <section class="glass-card">
+          <h3>Generate VIP / Lifetime License Key</h3>
+          <div class="row">
+            <select id="licTierSelect" style="flex:1;">
+              <option value="vip">VIP (Time-Limited)</option>
+              <option value="lifetime">Lifetime</option>
+            </select>
+            <input type="number" id="licDaysInput" value="30" min="0" max="36500" placeholder="Days (0 for Lifetime)" style="flex:1;">
+          </div>
+          <input type="text" id="licCustomCode" placeholder="Optional custom code (blank = auto LUMIQ-XXXX)">
+          <button id="genLicenseBtn" class="primary-btn">Create &amp; Store License</button>
+          <p id="licResultMsg" style="font-weight:700;color:var(--electric-blue);"></p>
+        </section>
+      </div>
+
+      <section class="glass-card wide" style="margin-bottom: 18px;">
+        <div class="row" style="justify-content:space-between;">
+          <h3>User Governance (Ban / VIP / Device Unbind)</h3>
+          <div class="row">
+            <input type="text" id="userSearchInput" placeholder="Filter by Public ID (LUM-...), UID, or Username" style="width:280px;margin:0;">
+            <button id="refreshUsersBtn" class="btn-sm primary">Refresh</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Public ID</th>
+                <th>Username</th>
+                <th>Tier</th>
+                <th>Device ID</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="grid-2">
+        <section class="glass-card">
+          <h3>Publish System Announcement</h3>
+          <input type="text" id="annTitleInput" placeholder="Announcement title">
+          <textarea id="annBodyInput" rows="3" placeholder="Announcement message for all LUMIQ AI users"></textarea>
+          <select id="annSeveritySelect">
+            <option value="info">Info</option>
+            <option value="warning">Warning</option>
+            <option value="critical">Critical</option>
+          </select>
+          <button id="publishAnnBtn" class="primary-btn">Publish Announcement</button>
+          <div id="announcementsList" style="margin-top:12px;"></div>
+        </section>
+
+        <section class="glass-card">
+          <h3>Studio Projects Moderation</h3>
+          <div id="projectsList"></div>
+        </section>
+      </div>
+
+      <section class="glass-card wide">
+        <h3>Active &amp; Redeemed Licenses</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Code</th><th>Tier</th><th>Days</th><th>Status</th><th>Redeemed By</th><th>Action</th></tr>
+            </thead>
+            <tbody id="licensesTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="glass-card wide" style="margin-top: 18px;">
+        <h3>Append-Only Audit Logs</h3>
+        <div id="auditLogsList"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="/admin/admin.js"></script>
+</body>
+</html>

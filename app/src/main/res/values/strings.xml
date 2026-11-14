@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LUMIQ AI</string>
+    <string name="company_name">LUMIQ LABS</string>
+    <string name="founder_name">Pranav Patel</string>
+    <string name="accessibility_service_label">LUMIQ AI Phone Control</string>
+    <string name="accessibility_service_description">Allows LUMIQ AI to perform explicit user-requested navigation actions (Home, Back, Recents, Quick Settings) only when you speak or confirm a command. No passwords or private credentials are ever collected.</string>
+    <string name="voice_service_channel_name">LUMIQ Voice Assistant</string>
+    <string name="voice_service_notification_title">LUMIQ Voice Assistant Active</string>
+    <string name="voice_service_notification_text">Listening for voice commands. Tap to open or stop.</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="assistant_tagline">10D Multi-Agent AI Operating Layer</string>
+</resources>

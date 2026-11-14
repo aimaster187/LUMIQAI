@@ -1,0 +1,299 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Core LUMIQ AI user account state, permanent public ID, trial/VIP status, and preferences.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Firebase Auth UID" },
+        "publicId": { "type": "string", "description": "Immutable permanent ID e.g. LUM-7K9P2M4X" },
+        "username": { "type": "string", "description": "Display handle (3-30 chars)" },
+        "bio": { "type": "string", "description": "Profile bio up to 240 chars" },
+        "avatarUrl": { "type": "string", "description": "Profile avatar URL" },
+        "isPublic": { "type": "boolean", "description": "Whether profile is discoverable publicly" },
+        "vipStatus": { "type": "string", "enum": ["free", "trial", "vip", "lifetime"] },
+        "deviceId": { "type": "string", "description": "Bound device identifier" },
+        "isBanned": { "type": "boolean", "description": "Admin moderation ban flag" },
+        "trialStartedAt": { "type": "string", "format": "date-time" },
+        "trialExpiresAt": { "type": "string", "format": "date-time" },
+        "vipExpiresAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "publicId", "username", "isPublic", "vipStatus", "isBanned", "createdAt"]
+    },
+    "UserPrivateAccount": {
+      "title": "UserPrivateAccount",
+      "description": "Owner-only PII document storing email and auth provider.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "provider": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "createdAt"]
+    },
+    "PublicProfile": {
+      "title": "PublicProfile",
+      "description": "Publicly searchable non-PII user profile keyed by immutable publicId.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "publicId": { "type": "string" },
+        "username": { "type": "string" },
+        "bio": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "isPublic": { "type": "boolean" },
+        "followersCount": { "type": "integer" },
+        "followingCount": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "publicId", "username", "isPublic", "createdAt"]
+    },
+    "UsernameClaim": {
+      "title": "UsernameClaim",
+      "description": "Unique lowercase username reservation index.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "publicId": { "type": "string" },
+        "username": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "publicId", "username", "createdAt"]
+    },
+    "FollowRelation": {
+      "title": "FollowRelation",
+      "description": "Follower-following link and request status between users.",
+      "type": "object",
+      "properties": {
+        "followerUid": { "type": "string" },
+        "targetUid": { "type": "string" },
+        "targetPublicId": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "accepted"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["followerUid", "targetUid", "targetPublicId", "status", "createdAt"]
+    },
+    "ChatSession": {
+      "title": "ChatSession",
+      "description": "User AI chat thread metadata.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "provider": { "type": "string" },
+        "model": { "type": "string" },
+        "lastMessagePreview": { "type": "string" },
+        "messageCount": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "provider", "model", "createdAt"]
+    },
+    "ChatMessageItem": {
+      "title": "ChatMessageItem",
+      "description": "Individual message inside a user chat thread.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "model", "system"] },
+        "content": { "type": "string" },
+        "model": { "type": "string" },
+        "latencyMs": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "role", "content", "createdAt"]
+    },
+    "UserMemoryItem": {
+      "title": "UserMemoryItem",
+      "description": "User-approved AI memory fact, preference, or conversation summary.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "category": { "type": "string", "enum": ["preference", "fact", "summary", "instruction"] },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "isPinned": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "category", "title", "content", "isPinned", "createdAt"]
+    },
+    "StudioProject": {
+      "title": "StudioProject",
+      "description": "Website or Android App project authored in LUMIQ Studios, visible to owner and admins.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "ownerPublicId": { "type": "string" },
+        "name": { "type": "string" },
+        "projectType": { "type": "string", "enum": ["website", "android_app"] },
+        "framework": { "type": "string" },
+        "packageName": { "type": "string" },
+        "buildStatus": { "type": "string", "enum": ["draft", "building", "ready", "failed"] },
+        "deploymentStatus": { "type": "string", "enum": ["not_deployed", "deployed", "blocked", "removed"] },
+        "publicUrl": { "type": "string" },
+        "version": { "type": "string" },
+        "summary": { "type": "string" },
+        "isModerated": { "type": "boolean" },
+        "moderationReason": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "projectType", "buildStatus", "deploymentStatus", "isModerated", "createdAt"]
+    },
+    "AgentTaskRun": {
+      "title": "AgentTaskRun",
+      "description": "Five-Agent Workspace task execution log.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "agentType": { "type": "string" },
+        "agentName": { "type": "string" },
+        "prompt": { "type": "string" },
+        "status": { "type": "string", "enum": ["queued", "running", "completed", "cancelled", "failed"] },
+        "resultSummary": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "agentType", "agentName", "prompt", "status", "createdAt"]
+    },
+    "UserNotification": {
+      "title": "UserNotification",
+      "description": "User notification entry.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "type": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "body", "isRead", "createdAt"]
+    },
+    "LicenseRecord": {
+      "title": "LicenseRecord",
+      "description": "VIP / Lifetime license key created by admin and redeemed by user.",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "tier": { "type": "string", "enum": ["vip", "lifetime"] },
+        "durationDays": { "type": "integer" },
+        "isActive": { "type": "boolean" },
+        "redeemedByUid": { "type": "string" },
+        "boundDeviceId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["code", "tier", "durationDays", "isActive", "createdAt"]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "description": "LUMIQ LABS global announcement.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "severity": { "type": "string", "enum": ["info", "warning", "critical"] },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "body", "severity", "isActive", "createdAt"]
+    },
+    "AppConfig": {
+      "title": "AppConfig",
+      "description": "Global maintenance mode and platform status.",
+      "type": "object",
+      "properties": {
+        "maintenanceMode": { "type": "boolean" },
+        "maintenanceMessage": { "type": "string" },
+        "minSupportedVersion": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["maintenanceMode", "updatedAt"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Append-only admin and security audit trail.",
+      "type": "object",
+      "properties": {
+        "actorUid": { "type": "string" },
+        "action": { "type": "string" },
+        "targetUid": { "type": "string" },
+        "targetId": { "type": "string" },
+        "details": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["actorUid", "action", "details", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Owner-isolated user profile and VIP/trial status"
+    },
+    "/users/{userId}/private/{docId}": {
+      "schema": { "$ref": "#/entities/UserPrivateAccount" },
+      "description": "PII-isolated private user metadata (email)"
+    },
+    "/publicProfiles/{publicId}": {
+      "schema": { "$ref": "#/entities/PublicProfile" },
+      "description": "Publicly searchable non-PII user card indexed by permanent publicId"
+    },
+    "/usernames/{usernameLower}": {
+      "schema": { "$ref": "#/entities/UsernameClaim" },
+      "description": "Unique lowercase username reservation"
+    },
+    "/follows/{followId}": {
+      "schema": { "$ref": "#/entities/FollowRelation" },
+      "description": "Social follow connections and requests"
+    },
+    "/users/{userId}/chats/{chatId}": {
+      "schema": { "$ref": "#/entities/ChatSession" },
+      "description": "User AI chat sessions"
+    },
+    "/users/{userId}/chats/{chatId}/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ChatMessageItem" },
+      "description": "Messages in a user AI chat session"
+    },
+    "/users/{userId}/memories/{memoryId}": {
+      "schema": { "$ref": "#/entities/UserMemoryItem" },
+      "description": "User-controlled AI memory records"
+    },
+    "/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/StudioProject" },
+      "description": "Website Studio & App Studio projects owned by user and moderated by admin"
+    },
+    "/users/{userId}/agentTasks/{taskId}": {
+      "schema": { "$ref": "#/entities/AgentTaskRun" },
+      "description": "Multi-agent execution records"
+    },
+    "/users/{userId}/notifications/{notificationId}": {
+      "schema": { "$ref": "#/entities/UserNotification" },
+      "description": "User notifications"
+    },
+    "/licenses/{licenseKey}": {
+      "schema": { "$ref": "#/entities/LicenseRecord" },
+      "description": "VIP / Lifetime license keys"
+    },
+    "/announcements/{announcementId}": {
+      "schema": { "$ref": "#/entities/Announcement" },
+      "description": "LUMIQ LABS announcements"
+    },
+    "/config/{configId}": {
+      "schema": { "$ref": "#/entities/AppConfig" },
+      "description": "Global platform configuration"
+    },
+    "/auditLogs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLog" },
+      "description": "Append-only admin audit logs"
+    }
+  }
+}

@@ -1,0 +1,1294 @@
+LUMIQ AI — COMPLETE MASTER BUILD DIRECTIVE
+
+LUMIQ LABS | Founder & Lead Developer: Pranav Patel
+
+तुम्हारा काम केवल UI डिजाइन करना, डेमो बनाना या कोड के नमूने देना नहीं है। तुम्हें एक वास्तविक, एडवांस, काम करने वाला Android AI Assistant बनाना है। पहले पूरे प्रोजेक्ट की जांच करो, फिर योजना बनाओ, कोड लिखो, सभी मॉड्यूल आपस में जोड़ो, खुद टेस्ट करो, एरर ठीक करो और उपलब्ध साधनों से अंतिम APK तथा वेबसाइट तैयार करो।
+
+तुम्हें एक अनुभवी Android Engineer, Kotlin Developer, AI Architect, UI/UX Designer, Backend Engineer, Firebase Engineer, Security Engineer, QA Tester और Build Engineer की तरह काम करना है।
+
+कोई नकली फीचर, नकली बटन, नकली AI जवाब, नकली सफलता, नकली Build Status या केवल दिखावे का UI स्वीकार नहीं है।
+
+---
+
+1. सबसे पहले पहचान और पैकेज नेम फिक्स करो
+
+पूरे प्रोजेक्ट की पहचान:
+
+- App Name: LUMIQ AI
+- Company / Brand: LUMIQ LABS
+- Founder & Lead Developer: Pranav Patel
+- Application ID / Package Name: "com.lumiqlabs.lumiqai"
+- Main AI Identity: LUMIQ
+- Website Brand: LUMIQ LABS
+- Admin Dashboard Brand: LUMIQ LABS
+
+Android namespace और applicationId को वास्तविक प्रोजेक्ट में जांचकर इसी पहचान के अनुरूप रखो।
+
+"com.example" या कोई दूसरा placeholder package name बिल्कुल मत छोड़ना।
+
+अगर पुराने प्रोजेक्ट में पहले से कोई package ID, Firebase configuration, OAuth client या released APK मौजूद है, तो बिना जांचे उसे मत बदलना। पहले migration और signing compatibility जांचो। जरूरी बदलाव सुरक्षित तरीके से करो और रिपोर्ट में बताओ।
+
+ब्रांड नाम, ऐप का नाम, कंपनी का नाम और डेवलपर का नाम अलग-अलग जगह गलत या आपस में मिले हुए नहीं होने चाहिए।
+
+सभी जगह एक समान पहचान हो:
+
+- Launcher icon
+- Splash screen
+- App settings
+- About screen
+- Login screen
+- Website
+- Admin panel
+- Documentation
+- APK metadata
+- Build artifact names
+
+---
+
+2. काम शुरू करने से पहले प्रोजेक्ट का पूरा निरीक्षण
+
+सबसे पहले:
+
+1. उपलब्ध Workspace, Repository और सभी Source Files जांचो।
+2. मौजूदा Kotlin, Gradle, Manifest, Resources और Firebase Configuration पढ़ो।
+3. सभी Existing Screens, Navigation, Services, ViewModels और Repositories की जांच करो।
+4. पहले से काम करने वाले फीचर्स को बिना कारण मत हटाना।
+5. अधूरे फीचर्स और Broken Connections की सूची बनाओ।
+6. Build System और JDK/Gradle Compatibility जांचो।
+7. Git Branch, Remote और Project Structure जांचो।
+8. जरूरी सुरक्षा जोखिमों की जांच करो।
+9. फिर implementation शुरू करो।
+
+अगर Workspace खाली है तो शुरुआत से पूरा प्रोजेक्ट बनाओ।
+
+अगर पुराना प्रोजेक्ट है तो उसी को सुधारो। बिना जरूरत नया खाली प्रोजेक्ट बनाकर पुराना काम बर्बाद मत करो।
+
+---
+
+3. LUMIQ AI का मुख्य डिजाइन
+
+एक प्रीमियम, futuristic, high-end, 3D-inspired, 10D visual experience तैयार करो।
+
+10D केवल डिजाइन की गहराई और layered visual experience का नाम है, कोई वास्तविक तकनीकी dimension नहीं।
+
+डिजाइन की पहचान:
+
+- Premium Pearl White
+- Silver / Chrome Metallic
+- Electric Blue
+- Cyan Glow
+- Glassmorphism
+- 3D Depth
+- Layered Glass Cards
+- Soft Shadows
+- Metallic Highlights
+- Smooth Animations
+- Premium Micro Interactions
+- Dynamic AI Orb
+- Fluid Transitions
+- Responsive Layout
+
+Default Theme White रखो। Dark Mode वैकल्पिक हो।
+
+डिजाइन पुराना, साधारण या generic AI chatbot जैसा नहीं होना चाहिए।
+
+Phone, Tablet और उपलब्ध Desktop-size layouts पर responsive UI बनाओ।
+
+Home Screen
+
+Home Screen में:
+
+- LUMIQ AI Logo
+- User Profile
+- Notifications
+- AI Orb
+- Voice Assistant Button
+- Text Input
+- Attachment Button
+- Camera Button
+- Image Upload
+- Recent Chats
+- Agent Status
+- Quick Actions
+- AI Model Selector
+- Connection Status
+
+ऊपर बाईं तरफ तीन लाइन वाला Hamburger Menu हो।
+
+उसे दबाने पर सभी उपलब्ध Modules और Features वाला Navigation Panel खुले।
+
+कोई महत्वपूर्ण फीचर बिना Navigation के छिपा हुआ नहीं होना चाहिए।
+
+---
+
+4. LUMIQ AI को फोन का मुख्य AI Assistant बनाना
+
+LUMIQ को Android का Default Digital Assistant बनने का समर्थित विकल्प देना है।
+
+Android Assistant Role और उपलब्ध Default Assistant APIs का उपयोग करो।
+
+जहाँ डिवाइस सपोर्ट करता हो, उपयोगकर्ता को LUMIQ को Default Assistant चुनने का विकल्प दो।
+
+Power Button Long Press से Assistant खोलने की सुविधा केवल उन Android Versions और OEM Devices पर लागू करो जहाँ सिस्टम इसे अनुमति देता है।
+
+ध्यान रहे:
+
+- Power Button behavior हर फोन में समान नहीं होता।
+- Android/OEM Settings में उपयोगकर्ता को LUMIQ चुनना पड़ सकता है।
+- जहाँ सिस्टम इसकी अनुमति नहीं देता, वहाँ झूठा दावा मत करना।
+- Google Assistant को चुपके से Disable या Replace मत करना।
+- उपयोगकर्ता की स्पष्ट अनुमति के बिना Default Assistant Role मत लेना।
+
+Assistant Launch होने पर:
+
+- Voice UI खुले।
+- AI Orb Animate हो।
+- Listening State दिखे।
+- User Voice Command दे सके।
+- जवाब आवाज और टेक्स्ट दोनों में मिले।
+
+---
+
+5. पूरे फोन का Voice Control
+
+LUMIQ को एक Advanced Android Voice-Control Assistant बनाओ।
+
+समर्थित Android APIs और User-Granted Permissions से:
+
+- ऐप खोलना और बंद करना जहाँ संभव हो।
+- Home Screen पर जाना।
+- Back Navigation।
+- Recent Apps खोलना।
+- उपलब्ध Quick Settings और System Settings खोलना।
+- Flashlight Control।
+- Media Play/Pause।
+- Volume Control जहाँ समर्थित हो।
+- Alarm और Timer बनाना।
+- Supported Notifications पढ़ने में सहायता।
+- फोन के उपलब्ध Supported Shortcuts चलाना।
+- Contacts और Calling Actions में User Confirmation।
+- Supported App Navigation।
+- Accessibility Actions केवल उपयोगकर्ता द्वारा Accessibility Service Enable करने पर।
+
+Accessibility Service को स्पष्ट नाम, विवरण और उद्देश्य के साथ बनाओ।
+
+कोई छिपी हुई Accessibility गतिविधि, गुप्त क्लिक, Credential Collection, Security Bypass या बिना अनुमति के संवेदनशील कार्रवाई नहीं होनी चाहिए।
+
+हर Sensitive Action से पहले Confirmation लो।
+
+जहाँ Android किसी Action को रोकता है, वहाँ साफ बताओ कि वह Action समर्थित नहीं है।
+
+---
+
+6. Wake Word और Background Voice Assistant
+
+Wake Word विकल्प:
+
+- Hey LUMIQ
+- Hello LUMIQ
+- LUMIQ
+
+उपयोगकर्ता Wake Word चुन और बदल सके।
+
+एक बार Mic Start करने पर Continuous Listening Session चले।
+
+बार-बार Mic दबाने की जरूरत न पड़े।
+
+अगली बार Mic दबाने पर Listening बंद हो जाए।
+
+Voice Activity Detection, Silence Detection और Automatic Speech Submission बनाओ।
+
+AI जवाब देते समय:
+
+- TTS Playback के दौरान Microphone को सही तरीके से Gate करो।
+- Echo Cancellation उपलब्ध हो तो इस्तेमाल करो।
+- Audio Focus संभालो।
+- AI अपनी ही आवाज को User Command न समझे।
+- Duplicate Speech Recognition Events रोकना।
+- Listening और Speaking States स्पष्ट दिखाना।
+
+Background Wake Word के लिए जहाँ संभव हो On-device Wake Word Engine इस्तेमाल करो।
+
+सिर्फ लगातार Cloud Speech Recognition चलाकर उसे Wake Word Engine मत बताना।
+
+Background Microphone के लिए:
+
+- आवश्यक Foreground Service।
+- Persistent Notification।
+- Runtime Permission।
+- Android Version Compatibility।
+- Battery Optimization Guidance।
+- स्पष्ट Start/Stop Controls।
+
+Android की Microphone और Foreground Service Restrictions का पालन करो।
+
+Force Stop, System Termination, Reboot या हर फोन पर Background Wake Word चलने की गारंटी मत देना।
+
+Microphone Permission न होने पर स्पष्ट कारण बताओ।
+
+अनावश्यक Mic On/Off Sound मत बजाओ, लेकिन Android Privacy Indicators को छिपाने की कोशिश मत करना।
+
+---
+
+7. अपना Text-to-Speech और Speech-to-Text सिस्टम
+
+LUMIQ में अपना अलग Voice Engine Module और Voice Studio बनाओ।
+
+इसका नाम, UI, Configuration और Voice Management LUMIQ के अपने हों।
+
+सिर्फ Android के Default TTS UI को अपना Engine बताकर पेश मत करना।
+
+Speech-to-Text
+
+- Live Speech Recognition।
+- Hindi Recognition।
+- English Recognition।
+- Hinglish Support।
+- उपलब्ध अन्य भाषाओं का Support।
+- Punctuation।
+- Partial Results।
+- Final Results।
+- Voice Activity Detection।
+- Noise Handling।
+- Offline Recognition जहाँ Model उपलब्ध हो।
+- Recognition History।
+- Language Selection।
+
+Text-to-Speech
+
+अलग-अलग Voices:
+
+- Male Voice
+- Female Voice
+- Additional Voice Profiles
+- Hindi Voice
+- English Voice
+- Multilingual Voices
+- Voice Speed
+- Pitch
+- Volume
+- Pronunciation Controls
+- Voice Preview
+- Default Voice Selection
+
+LUMIQ Voice Studio
+
+यूजर:
+
+- Voice Profiles बना सके।
+- Voice Settings बदल सके।
+- उपलब्ध Models Install कर सके।
+- Voice Samples सुन सके।
+- Default Assistant Voice चुन सके।
+
+अपना Voice Engine Architecture बनाओ और जहाँ संभव हो Licensed/Permitted Open-Source On-device Models जोड़ो।
+
+नए TTS/STT Models को शून्य से Train करने का दावा मत करना जब तक वास्तव में Training Infrastructure, Dataset, Compute और Model उपलब्ध न हों।
+
+किसी व्यक्ति की आवाज की नकल बिना अनुमति के मत करना।
+
+जहाँ On-device Model उपलब्ध नहीं हो, वहाँ Configurable Provider और साफ Offline/Online Status दिखाओ।
+
+---
+
+8. AI Chat System
+
+Advanced Multi-Model Chat बनाओ।
+
+Features:
+
+- Streaming Responses
+- Chat History
+- New Chat
+- Rename Chat
+- Delete Chat
+- Search History
+- Stop Generation
+- Retry
+- Copy
+- Share
+- Markdown
+- Code Blocks
+- File Attachments
+- Image Understanding
+- Document Understanding
+- Model Selection
+- Provider Selection
+- Error Handling
+- Conversation Memory
+
+Gemini, OpenAI-Compatible APIs, Groq और Custom API Endpoints का Support दो।
+
+यूजर अपना API Provider, Model और API Key खुद जोड़ सके।
+
+हर User का API Configuration अलग और Private हो।
+
+किसी दूसरे User या Founder की API Key अपने-आप इस्तेमाल मत करना।
+
+API Keys को:
+
+- APK में Hardcode मत करना।
+- GitHub में Commit मत करना।
+- Firestore में Plaintext मत रखना।
+- Logs में मत दिखाना।
+- Admin Panel में Expose मत करना।
+
+Local Secure Storage के लिए Android Keystore आधारित Encryption इस्तेमाल करो।
+
+अगर Backend Proxy इस्तेमाल करते हो तो हर User की Credentials और Usage अलग-अलग सुरक्षित रखो।
+
+Provider Connected तभी दिखाना जब वास्तविक Connection Test सफल हो।
+
+---
+
+9. Five-Agent AI Workspace
+
+एक वास्तविक Multi-Agent System बनाओ।
+
+एक समय में अधिकतम 5 Agents चल सकें।
+
+Agent Types:
+
+1. Coding Agent
+2. Research Agent
+3. Browser Agent
+4. Phone Assistant Agent
+5. WhatsApp Assistant Agent
+
+उपयोगकर्ता Custom Agents बना सके।
+
+हर Agent में:
+
+- Name
+- Avatar
+- Instructions
+- Provider
+- Model
+- Tools
+- Permissions
+- Assigned Task
+- Status
+- Logs
+- Results
+- Cancel Button
+
+Orchestrator Agents के बीच Tasks बाँटे।
+
+Agents के बीच जरूरी Results और Context Share हों।
+
+Parallel Execution अधिकतम 5 Agents तक सीमित हो।
+
+Emergency Stop Button बनाओ।
+
+किसी Agent को Sensitive Action करने से पहले User Confirmation लेना जरूरी हो।
+
+Fake Running Status मत दिखाना।
+
+---
+
+10. Browser और Web Research
+
+एक वास्तविक Android WebView आधारित Browser बनाओ।
+
+Features:
+
+- Multiple Tabs
+- Address Bar
+- Navigation
+- Back/Forward
+- Refresh
+- Bookmarks
+- History
+- Downloads
+- HTTPS Indicator
+- Clear Browsing Data
+- AI Page Summary
+- AI Page Questions
+- Search Engine Selection
+
+Unsafe Web Content को App के Private Data या Secrets तक पहुँचने से रोकना।
+
+---
+
+11. Code Studio
+
+एक वास्तविक Code Studio बनाओ।
+
+Features:
+
+- File Explorer
+- Multiple Editor Tabs
+- Create File
+- Rename
+- Delete
+- Edit
+- Find/Replace
+- Syntax Highlighting
+- Formatting
+- AI Code Generation
+- AI Debugging
+- Code Explanation
+- Project Management
+- Import/Export
+- Preview
+- Console
+- Build Logs
+
+Languages:
+
+Kotlin, Java, JavaScript, TypeScript, Python, HTML, CSS, JSON, XML और SQL।
+
+जहाँ सुरक्षित और उपलब्ध हो वहाँ Code Execution दो।
+
+Arbitrary Code को बिना Sandbox के Execute मत करना।
+
+---
+
+12. Website Studio — वेबसाइट बनाओ और Live करो
+
+यह LUMIQ AI का एक प्रमुख फीचर होगा।
+
+यूजर LUMIQ से कह सके:
+
+"मेरे लिए एक Professional E-commerce Website बनाओ और उसे Live कर दो।"
+
+LUMIQ को यह पूरा Workflow करना चाहिए:
+
+1. User Requirements समझना।
+2. Website Structure बनाना।
+3. Design तैयार करना।
+4. HTML/CSS/JavaScript या उपयुक्त Framework चुनना।
+5. Responsive Pages बनाना।
+6. Navigation बनाना।
+7. Backend की जरूरत पहचानना।
+8. Database की जरूरत पहचानना।
+9. Authentication जोड़ना जहाँ आवश्यक हो।
+10. Website Preview दिखाना।
+11. User Changes लागू करना।
+12. Tests चलाना।
+13. Build Errors ठीक करना।
+14. Production Build बनाना।
+15. Free Hosting Options जांचना।
+16. User की अनुमति लेकर Deployment करना।
+17. Live URL देना।
+18. Deployment Status और Logs दिखाना।
+
+Website Projects में:
+
+- Project Dashboard
+- File Explorer
+- Code Editor
+- Live Preview
+- Desktop Preview
+- Mobile Preview
+- Multiple Pages
+- Assets
+- Version History
+- Duplicate Project
+- Rename
+- Delete
+- ZIP Export
+- ZIP Import
+- Deployment History
+- Build Logs
+- Error Logs
+
+Free Hosting
+
+पहले वास्तविक Free Hosting विकल्पों की उपलब्धता और उनकी वर्तमान Limits जांचो।
+
+जहाँ उपयुक्त और Free Tier उपलब्ध हो, वहाँ:
+
+- GitHub Pages
+- Cloudflare Pages
+- Netlify Free Tier
+- Firebase Hosting Free Quota
+
+जैसे विकल्पों का Support दो।
+
+किसी Provider की वर्तमान Free Limits बिना जांचे निश्चित मत बताना।
+
+पहले Free Subdomain पर Live करने का विकल्प दो।
+
+Custom Domain सामान्यतः अलग से खरीदना पड़ सकता है। उसे Free बताकर झूठा दावा मत करना।
+
+Domain Search, DNS Setup और Domain Connection Guide दो।
+
+Deployment Credentials सुरक्षित रखो।
+
+User की अनुमति के बिना किसी Public URL पर Website Publish मत करना।
+
+अगर Hosting Credentials या Account Authorization जरूरी हो तो केवल वही एक जरूरी जानकारी माँगो।
+
+Deployment सफल होने के बाद वास्तविक Live URL दो। केवल Preview URL को Production Website मत बताना।
+
+---
+
+13. Android App Studio — ऐप बनाओ और APK तैयार करो
+
+LUMIQ AI में पूरा Android App Builder बनाओ।
+
+यूजर कह सके:
+
+"एक Advanced Shopping App बनाओ, उसका डिजाइन Premium 3D होना चाहिए, सारे जरूरी फीचर्स जोड़ो, APK बनाओ और मेरे फोन में Install करो।"
+
+इसके बाद LUMIQ यह Workflow करे:
+
+1. Requirements समझे।
+2. App Architecture बनाए।
+3. Package Name तय करे।
+4. App Name पूछे या User द्वारा दिए गए नाम का उपयोग करे।
+5. Company/Developer Details ले।
+6. Kotlin/Java Technology चुने।
+7. Android Project बनाए।
+8. Manifest बनाए।
+9. Gradle Configuration बनाए।
+10. UI Screens बनाए।
+11. Navigation जोड़े।
+12. Database और Backend जोड़े जहाँ जरूरी हो।
+13. Permissions का मूल्यांकन करे।
+14. Required Resources बनाए।
+15. Tests चलाए।
+16. Compile करे।
+17. Errors पढ़े।
+18. Errors ठीक करे।
+19. फिर Build करे।
+20. Debug APK बनाए।
+21. APK की Integrity और Size जांचे।
+22. APK Download उपलब्ध कराए।
+23. User की अनुमति से समर्थित Device Installation करे।
+
+Generated App Design
+
+Generated Apps में Premium Design System उपलब्ध हो:
+
+- 3D-inspired UI
+- Layered Glassmorphism
+- Pearl White
+- Silver Metallic
+- Blue/Cyan Highlights
+- Smooth Animations
+- Premium Cards
+- Modern Navigation
+- Responsive Layout
+- Professional Splash Screen
+- High Quality App Icon
+
+10D को Visual Design Style समझो, वास्तविक 10-Dimensional Technology नहीं।
+
+हर Generated App को LUMIQ AI जैसा ही मत बनाना। User की Requirements के अनुसार अलग-अलग Branding और Design बनाना।
+
+APK Build और Install
+
+APK Builder में:
+
+- Build Type
+- Debug Build
+- Release Build
+- Build Logs
+- Build Errors
+- Build History
+- APK Size
+- Package Name
+- Version Name
+- Version Code
+- Signature Status
+- Download APK
+
+दिखाओ।
+
+जहाँ Cloud Build उपलब्ध हो वहाँ Cloud Build करो।
+
+जहाँ Local Build उपलब्ध हो वहाँ Supported Local Build इस्तेमाल करो।
+
+किसी Build को सफल तभी बताना जब वास्तविक APK Artifact मौजूद हो और उसकी जाँच सफल हो।
+
+मेरे फोन में APK Install करना
+
+पहले जांचो कि तुम्हारे पास User के Android Device तक कोई अधिकृत Installation Connection उपलब्ध है या नहीं।
+
+अगर उपलब्ध हो:
+
+- Device पहचानो।
+- User से Installation Permission/Confirmation लो।
+- सही APK Install करो।
+- Install Result जांचो।
+- App Launch करने की कोशिश करो।
+- Crash या Installation Error मिले तो Logs पढ़ो।
+- समस्या ठीक करके नया Build बनाओ।
+- दोबारा Install करो।
+- अंतिम Result बताओ।
+
+अगर Device Connection उपलब्ध नहीं है:
+
+- APK Download उपलब्ध कराओ।
+- वास्तविक File Location बताओ।
+- Android Install Steps दो।
+- Unknown App Install Permission की जरूरत समझाओ।
+- User को Install करने में मदद करो।
+
+बिना Device Connection के यह दावा मत करना कि APK फोन में Install हो गया।
+
+Release APK को सही Signing Key से Sign करो। Signing Key को Repo या APK के अंदर मत रखो।
+
+---
+
+14. App Lock और Password Vault
+
+LUMIQ App Lock
+
+- User PIN बनाए।
+- PIN दो बार Verify हो।
+- Secure Salted Hash Storage।
+- Biometric Unlock जहाँ उपलब्ध हो।
+- Auto Lock।
+- Failed Attempt Throttling।
+- Recovery Flow।
+- Session Management।
+
+यह केवल LUMIQ App को Lock करेगा। Android Device का PIN या Pattern Replace नहीं करेगा।
+
+Password Vault
+
+- User अपने Passwords और Secure Notes खुद Save करे।
+- Android Keystore आधारित Encryption।
+- Authentication के बाद Reveal।
+- Clipboard Auto Clear।
+- Secure Export/Import।
+- Delete और Backup Controls।
+
+दूसरे Apps से Passwords निकालने, चुराने या बिना अनुमति Store करने की सुविधा नहीं होनी चाहिए।
+
+---
+
+15. WhatsApp Assistant
+
+WhatsApp के साथ केवल Supported और Authorized Integration करो।
+
+Features:
+
+- Message Drafting
+- Suggested Replies
+- User-Approved Reply
+- Supported Notification Assistance
+- Contact Selection
+- Share Sheet
+- Per-Contact Preferences
+- Message Draft History
+
+किसी Message को बिना User Confirmation के Automatically Send मत करना।
+
+Encryption Bypass, Hidden Scraping, Bulk Spam या Unauthorized Sending मत करना।
+
+Status अलग-अलग दिखाओ:
+
+- Drafted
+- Opened
+- Sent Confirmed
+
+सिर्फ WhatsApp खोल देने को Message Sent मत बताना।
+
+---
+
+16. Camera, Vision और Document AI
+
+CameraX और उपलब्ध ML Kit APIs इस्तेमाल करो।
+
+Features:
+
+- Camera Capture
+- Gallery Selection
+- OCR
+- QR Scanner
+- Barcode Scanner
+- Image Understanding
+- Document Scanner
+- PDF Reading
+- Document Summary
+- Document Questions
+- Extracted Text
+- Export/Share
+
+किसी Image या Document को External Provider पर भेजने से पहले User को जानकारी दो।
+
+---
+
+17. User Account और Social System
+
+Firebase Authentication के साथ:
+
+- Google Sign-In
+- Email/Password
+- Email Verification
+- Password Reset
+- Logout
+- Account Deletion
+
+हर User का Unique Permanent Public ID बनाओ।
+
+उदाहरण:
+
+"LUM-7K9P2M4X"
+
+ID Registration पर बने और Username, Email या Profile Photo बदलने पर भी न बदले।
+
+Firestore में Unique ID और Username Index सुरक्षित तरीके से बनाएँ।
+
+Profile Features:
+
+- Username
+- Profile Photo
+- Bio
+- Followers
+- Following
+- Follow Requests
+- Public/Private Profile
+- Notifications
+- Block
+- Report
+
+Email और Private Account Details Public न हों।
+
+---
+
+18. User-Controlled AI Memory
+
+AI Memory System बनाओ।
+
+Features:
+
+- Approved Preferences
+- Saved Facts
+- Conversation Summaries
+- Search Memory
+- Edit Memory
+- Delete Memory
+- Export
+- Import
+- Memory Settings
+
+बिना User Control के हर Chat को Permanent Memory में Save मत करना।
+
+---
+
+19. Firebase और Backend Architecture
+
+एक ही सही Firebase Project इस्तेमाल करो।
+
+पहले मौजूदा "google-services.json", Firebase Project ID, OAuth Configuration और Package Name जांचो।
+
+गलत या काल्पनिक Firebase Project ID मत बनाना।
+
+Firebase Services जहाँ आवश्यक हों:
+
+- Authentication
+- Cloud Firestore
+- Firebase Storage
+- Firebase Hosting
+- Cloud Functions या Trusted Backend
+
+Data Structure स्पष्ट और सुरक्षित बनाओ।
+
+Collections में आवश्यकता के अनुसार:
+
+- users
+- publicIds
+- usernames
+- projects
+- websites
+- apps
+- builds
+- agentTasks
+- follows
+- notifications
+- licenses
+- auditLogs
+
+हर User का Data उसके UID से अलग हो।
+
+Firestore Rules में Deny by Default और Least Privilege अपनाओ।
+
+Admin Privileged Operations केवल Trusted Backend से करो।
+
+Service Account Keys APK या GitHub में कभी मत डालना।
+
+---
+
+20. Admin Dashboard — LUMIQ LABS
+
+एक Premium Responsive Web Admin Dashboard बनाओ।
+
+Brand:
+LUMIQ LABS
+
+Design:
+
+- White/Silver/Blue/Cyan
+- 3D-inspired Cards
+- Glass UI
+- Premium Dashboard
+- Desktop और Mobile Responsive
+
+Admin Features:
+
+- Secure Admin Login
+- User Search
+- Public ID Search
+- Username Search
+- User Profile Metadata
+- User Status
+- Ban/Unban
+- VIP Management
+- Trial Management
+- License Creation
+- Expiry
+- Lifetime VIP
+- Device Binding/Unlink
+- Usage Analytics
+- Announcements
+- Maintenance Mode
+- Moderation
+- Audit Logs
+
+User Projects Management
+
+Admin Dashboard में यह दिखे कि किस User ने कौन-सा Website या Android App Project बनाया है।
+
+दिखाओ:
+
+- Project Name
+- Project ID
+- Owner UID
+- Creation Date
+- Last Updated
+- Project Type
+- Build Status
+- Deployment Status
+- Public URL
+- Version
+- Error Status
+
+Admin को उचित Authorization और Audit Log के साथ:
+
+- Project Publishing रोकने।
+- Deployment रोकने।
+- Hosted Project को Policy/Security कारण से हटाने।
+- User Account को Ban करने।
+- Project को Moderate करने की सुविधा दो।
+
+Private Password Vault, API Keys, Passwords और Private Chats Admin को Expose मत करना।
+
+Private Source Code की Inspection केवल स्पष्ट Authorization, User Notice और Audited Access के साथ हो।
+
+Admin Security
+
+- Default Admin Password मत बनाना।
+- "admin123" जैसे Credentials मत रखना।
+- Client-side Admin Flag पर भरोसा मत करना।
+- Server-Verified Role/Custom Claims इस्तेमाल करना।
+- Privileged Actions Backend पर Verify करना।
+- Audit Logs रखना।
+
+---
+
+21. VIP और Trial System
+
+जहाँ Trusted Backend उपलब्ध हो वहाँ Server-Authoritative Trial और VIP System बनाओ।
+
+Trial:
+
+- प्रस्तावित Trial अवधि: 10 मिनट।
+- Server Time से Verify।
+- Reinstall से Reset न हो।
+- App Data Clear करने से Reset न हो।
+- Offline होने पर स्पष्ट Behavior दिखे।
+
+VIP:
+
+- License Key Generation
+- Activation
+- Expiry
+- Lifetime Option
+- Device Binding
+- Unlink
+- Ban/Unban
+- Usage
+- Audit Logs
+
+Fake Payment या Fake VIP Activation मत बनाना।
+
+---
+
+22. Permission Center
+
+सभी Permissions की एक व्यवस्थित सूची बनाओ।
+
+हर Permission के लिए:
+
+- Permission Name
+- किस Feature के लिए चाहिए
+- Current Status
+- क्यों जरूरी है
+- Grant करने का तरीका
+- Revoke करने का तरीका
+- Permission Denied होने पर Behavior
+
+सिर्फ आवश्यक Permissions माँगो।
+
+On-Demand Permission Request अपनाओ।
+
+Feature के बिना SMS, Call Logs, Contacts, Location या All Files Access जैसी Permissions मत माँगना।
+
+Android द्वारा नियंत्रित Permissions को User की अनुमति के बिना Grant नहीं किया जा सकता।
+
+Accessibility, Notification Listener, Overlay और Default Assistant जैसी Special Access Settings स्पष्ट तरीके से समझाओ।
+
+Privacy Policy और Permission Guide बनाओ।
+
+---
+
+23. User Experience और Advanced Features
+
+जहाँ संभव हो इन अतिरिक्त Features को भी जोड़ो:
+
+- Universal AI Search
+- Smart Notifications
+- AI Task Planner
+- Notes
+- Reminders
+- Calendar Integration
+- File Manager Integration
+- Clipboard Assistance
+- Smart Shortcuts
+- Offline Mode
+- Network Status
+- AI Usage Dashboard
+- Model Usage Tracking
+- Per-User API Usage
+- Theme Customization
+- Language Selection
+- Accessibility-Friendly UI
+- Crash Reporting
+- Error Recovery
+- Export/Backup
+- Restore
+- In-App Help
+- Privacy Dashboard
+
+हर फीचर वास्तविक रूप से काम करना चाहिए।
+
+---
+
+24. Website और App Publishing में सुरक्षा
+
+Website और APK Publishing को LUMIQ AI के अंदर अलग-अलग Modules के रूप में बनाओ।
+
+LUMIQ AI का अपना Website/App Builder और Publishing System होगा।
+
+Generated Apps में Publishing/Admin Dashboard के Features अपने-आप मत डालना, जब तक User उस Generated App में विशेष रूप से ऐसा न माँगे।
+
+Deployment से पहले:
+
+- Project Validation
+- Build Check
+- Dependency Check
+- Secret Scan
+- Permission Review
+- Security Check
+- User Confirmation
+
+Free Hosting या Build Provider की वास्तविक Limits दिखाओ।
+
+---
+
+25. SELF-INSPECTION, SELF-DEBUGGING और AUTO-REPAIR
+
+यह सबसे महत्वपूर्ण निर्देश है।
+
+तुम्हें अपना काम खुद जांचना है।
+
+केवल Code लिखकर रुकना नहीं है।
+
+हर Module के बाद:
+
+1. संबंधित Files पढ़ो।
+2. Code Connections जांचो।
+3. Imports जांचो।
+4. Package Names जांचो।
+5. Gradle Configuration जांचो।
+6. Manifest जांचो।
+7. Navigation जांचो।
+8. Dependencies जांचो।
+9. Build/Compile चलाओ।
+10. Errors पढ़ो।
+11. Error का वास्तविक कारण पहचानो।
+12. Code ठीक करो।
+13. दोबारा Build/Test चलाओ।
+14. Regression जांचो।
+15. सफलता का प्रमाण दर्ज करो।
+
+अगर Build Fail होता है तो केवल Error Message छिपाकर Build Successful मत बताना।
+
+Stack Trace और Logs पढ़कर Root Cause ठीक करो।
+
+जहाँ संभव हो:
+
+- Unit Tests
+- UI Tests
+- Repository Tests
+- ViewModel Tests
+- Firebase Rules Tests
+- Authentication Tests
+- Agent Orchestration Tests
+- Voice State Tests
+- Website Build Tests
+- APK Build Tests
+- Installation Tests
+
+चलाओ।
+
+अगर किसी Test को चलाना संभव नहीं है तो उसे NOT VERIFIED लिखो।
+
+किसी फीचर को केवल UI बन जाने से Complete मत मानना।
+
+---
+
+26. CONTINUE, PAUSE, STOP और RESUME COMMANDS
+
+काम को नियंत्रित करने के लिए ये Commands समझो:
+
+CONTINUE: पिछले Checkpoint से काम आगे बढ़ाओ।
+
+PAUSE: वर्तमान सुरक्षित Step पूरा करके सभी जरूरी Files Save करो, नया काम रोक दो और Status बताओ।
+
+STOP: तुरंत नए Operations रोक दो। चल रहे सुरक्षित Writes को संभालो, Files Save करो और कोई नया Build/Deploy/Install शुरू मत करो।
+
+RESUME: पिछले Checkpoint से काम फिर शुरू करो।
+
+STATUS: अब तक किए गए काम, Pending काम, Errors और Tests की स्थिति बताओ।
+
+FIX: वर्तमान Errors और Failed Tests को प्राथमिकता देकर ठीक करो।
+
+BUILD APK: वास्तविक APK Build करो और Artifact Verify करो।
+
+DEPLOY WEBSITE: User की अनुमति और Valid Hosting Credentials के साथ Website Deploy करो।
+
+INSTALL APK: Device Connection उपलब्ध हो तो User की अनुमति से APK Install करो।
+
+लंबा काम करते समय Checkpoints बनाते रहो।
+
+अगर AI Studio की Quota समाप्त हो जाए या Session बंद हो जाए तो:
+
+- सभी काम Save करो।
+- कोई Valid Code Revert मत करो।
+- "PROJECT_STATUS.md" अपडेट करो।
+- "NEXT_STEPS.md" अपडेट करो।
+- Exact Pending Tasks लिखो।
+- Last Successful Build/Test लिखो।
+- Next Session के लिए Continuation Prompt बनाओ।
+
+कभी भी यह दावा मत करना कि तुम अनिश्चित समय तक बिना रुकावट काम कर सकते हो। उपलब्ध Execution और Quota Limits के अंदर अधिकतम काम पूरा करो।
+
+---
+
+27. GitHub और Automatic APK Build
+
+GitHub Actions का उपयोग करके Android APK Build Workflow तैयार करो।
+
+पहले Repository, Branch और Remote जांचो।
+
+Actual Project के अनुसार JDK और Gradle Versions चुनो।
+
+Workflow:
+
+- Checkout
+- Java Setup
+- Gradle Setup
+- Dependency Resolution
+- Unit Tests
+- Android Build
+- APK Validation
+- Artifact Upload
+
+Debug APK Artifact का नाम:
+
+"LUMIQ-AI-APK"
+
+Expected APK Output:
+
+"app/build/outputs/apk/debug/app-debug.apk"
+
+Release APK के लिए सुरक्षित Signing Configuration बनाओ।
+
+Secrets GitHub Secrets में रखो।
+
+API Keys, Service Account Keys, Keystore, Passwords और "local.properties" Commit मत करना।
+
+GitHub Actions सफल होने पर वास्तविक Artifact Link और Build Status दिखाओ।
+
+Termux में APK Build होने का दावा मत करना जब Build वास्तव में GitHub Actions में हुआ हो।
+
+---
+
+28. Complete Documentation
+
+इन Files को बनाओ या अपडेट करो:
+
+- README.md
+- BUILD_GUIDE.md
+- FIREBASE_SETUP.md
+- ADMIN_DEPLOYMENT.md
+- VOICE_SETUP.md
+- PERMISSIONS_GUIDE.md
+- GITHUB_APK_GUIDE.md
+- WEBSITE_DEPLOYMENT_GUIDE.md
+- APP_STUDIO_GUIDE.md
+- SECURITY.md
+- PRIVACY_POLICY.md
+- PROJECT_STATUS.md
+- NEXT_STEPS.md
+- CHANGELOG.md
+
+सभी Instructions वास्तविक Project Structure के अनुरूप हों।
+
+---
+
+29. FINAL SOURCE BACKUP
+
+पूरे Source Code का Backup तैयार करो।
+
+Filename:
+
+"LUMIQ-AI-COMPLETE-SOURCE.tar.gz"
+
+इसमें आवश्यक:
+
+- Android Source
+- Resources
+- Tests
+- Firebase Rules
+- Admin Source
+- Website Source
+- GitHub Workflows
+- Documentation
+
+Exclude:
+
+- ".git"
+- ".gradle"
+- Build Caches
+- "*/build"
+- "local.properties"
+- API Keys
+- Service Account Credentials
+- Keystore
+- Passwords
+- Private Secrets
+
+Archive बनाने के बाद उसका अस्तित्व और Size Verify करो।
+
+---
+
+30. FINAL ACCEPTANCE CHECKLIST
+
+काम पूरा बताने से पहले प्रत्येक बिंदु का Status लिखो:
+
+- [ ] Package Name Verified
+- [ ] Brand Identity Applied
+- [ ] Premium Home UI
+- [ ] Navigation Connected
+- [ ] AI Chat Working
+- [ ] API Provider Configuration
+- [ ] User API Isolation
+- [ ] Five-Agent Orchestration
+- [ ] Browser
+- [ ] Code Studio
+- [ ] Website Studio
+- [ ] Website Preview
+- [ ] Website Deployment
+- [ ] Android App Studio
+- [ ] APK Build
+- [ ] APK Validation
+- [ ] Device Installation, if supported
+- [ ] Voice Recognition
+- [ ] TTS Voice Profiles
+- [ ] Wake Word
+- [ ] Background Voice Service
+- [ ] Default Assistant Integration
+- [ ] Phone Control
+- [ ] App Lock
+- [ ] Password Vault
+- [ ] WhatsApp Assistance
+- [ ] Camera and OCR
+- [ ] Firebase Authentication
+- [ ] Unique Public User ID
+- [ ] User Memory
+- [ ] Admin Dashboard
+- [ ] User Project Management
+- [ ] VIP/Trial Backend
+- [ ] Permission Center
+- [ ] Security Rules
+- [ ] Unit Tests
+- [ ] Build Tests
+- [ ] GitHub Actions
+- [ ] Source Archive
+- [ ] Documentation
+
+हर Item के सामने इनमें से एक Status लिखो:
+
+PASS / PARTIAL / FAIL / NOT VERIFIED
+
+---
+
+31. अंतिम रिपोर्ट
+
+अंत में मुझे साफ-साफ बताओ:
+
+1. कौन-सा Package Name इस्तेमाल हुआ?
+2. कौन-सी Branding लागू हुई?
+3. कितनी Files बदलीं या बनाई गईं?
+4. कौन-से Features पूरी तरह काम कर रहे हैं?
+5. कौन-से Features अधूरे हैं?
+6. Firebase Connected और Tested है या नहीं?
+7. Google Sign-In Tested है या नहीं?
+8. SHA-1 और SHA-256 वास्तविक Values क्या हैं?
+9. Wake Word किस सीमा तक काम करता है?
+10. Default Assistant Integration की स्थिति क्या है?
+11. Phone Control की वास्तविक सीमाएँ क्या हैं?
+12. TTS/STT में कौन-से वास्तविक Engines/Models हैं?
+13. Website Live हुई या नहीं? वास्तविक URL क्या है?
+14. Android APK बना या नहीं? उसका वास्तविक Path और Size क्या है?
+15. APK फोन में Install हुआ या नहीं? इसका प्रमाण क्या है?
+16. कौन-से Tests PASS हुए?
+17. GitHub Actions Build सफल हुआ या नहीं?
+18. Source Archive बना या नहीं?
+19. User को कौन-से Manual Permissions या Credentials देने होंगे?
+20. अगला सबसे जरूरी काम क्या है?
+
+---
+
+32. अब काम शुरू करो
+
+अब केवल योजना या सलाह देकर मत रुकना।
+
+पहले Workspace और Project का निरीक्षण करो।
+
+फिर चरणबद्ध तरीके से पूरा LUMIQ AI बनाओ।
+
+पहले Working Core और सुरक्षित Architecture बनाओ, फिर Advanced Modules जोड़ो।
+
+हर Module को वास्तविक रूप से Connect करो।
+
+खुद Code पढ़ो, खुद Build करो, खुद Errors पहचानो, खुद ठीक करो और फिर दोबारा Test करो।
+
+जहाँ Website Deployment संभव हो, उसे User की अनुमति लेकर वास्तव में Live करो।
+
+जहाँ APK Build संभव हो, वास्तविक APK बनाओ और Verify करो।
+
+जहाँ अधिकृत Device Installation Connection उपलब्ध हो, User की अनुमति लेकर APK Install करो।
+
+अगर कोई कार्य उपलब्ध Tools, Android Restrictions, API Quota, Credentials या Infrastructure के कारण संभव नहीं है, तो उसे स्पष्ट रूप से बताओ और अगला सबसे अच्छा वास्तविक विकल्प दो।
+
+मुझे केवल सुंदर स्क्रीन नहीं चाहिए। मुझे एक वास्तविक, सुरक्षित, एडवांस और इस्तेमाल करने योग्य LUMIQ AI चाहिए।
+
+अब काम शुरू करो।

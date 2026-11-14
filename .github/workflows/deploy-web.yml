@@ -1,0 +1,26 @@
+name: Deploy LUMIQ AI Website & Admin Dashboard
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'web/public/**'
+      - 'firestore.rules'
+      - 'firebase.json'
+  workflow_dispatch:
+
+jobs:
+  deploy-hosting:
+    name: Deploy to Firebase Hosting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Deploy Hosting & Firestore Rules
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GEN_LANG_CLIENT_0099902352 }}
+          projectId: gen-lang-client-0099902352
+          channelId: live

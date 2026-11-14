@@ -1,0 +1,6 @@
+{
+  "name": "LUMIQ AI",
+  "description": "LUMIQ AI by LUMIQ LABS (Founder: Pranav Patel) — Futuristic 10D Pearl White & Cyan Voice-First Multi-Agent Android AI Assistant, Code & Website Studio, App Builder, and Secure Vault.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,46 @@
+name: Build LUMIQ AI Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Test & Build Debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew || true
+
+      - name: Run Unit Tests
+        run: ./gradlew :app:testDebugUnitTest --exclude-task "*Rule*"
+
+      - name: Assemble Debug APK
+        run: ./gradlew :app:assembleDebug
+
+      - name: Verify APK Artifact
+        run: |
+          APK_PATH="app/build/outputs/apk/debug/app-debug.apk"
+          test -f "$APK_PATH"
+          ls -lh "$APK_PATH"
+
+      - name: Upload LUMIQ-AI-APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LUMIQ-AI-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
